@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+
+gem 'cinch'
+gem 'cinch-cooldown'
+#gem 'cinch-isitup'
+gem 'ruby-web-search'
+gem 'require_all'
+gem 'nokogiri'
+gem 'curb'
+gem 'filesize'
+gem 'money'
+gem 'google_currency'
+gem 'omdbapi'
