@@ -45,7 +45,11 @@ class URLTitle
   def find_all_titles(m)
     urls = URI.extract(m.message, ['http', 'https'])
 
-    returned_titles = urls.take(3).map { |url| find_title(url) }.compact rescue []
+    unless m.user.nick =~ /^ImoutoBot/i or m.user.nick =~ /^kotorin/i or m.user.nick =~ /^ljrbot/i
+      returned_titles = urls.take(3).map { |url| find_title(url) }.compact rescue []
+    else
+      returned_titles = []
+    end
 
     if !returned_titles.empty? and m.message.match(/NSFW/i)
       m.reply Format(:red, "^ NSFW") + " " + returned_titles.join(" || ")
