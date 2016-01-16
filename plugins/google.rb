@@ -2,6 +2,7 @@ require 'ruby-web-search'
 
 class Google
   include Cinch::Plugin
+  include Cinch::Formatting
 
   match /google (.+)/
   match /g (.+)/
@@ -9,9 +10,9 @@ class Google
   def search(query)
     response = RubyWebSearch::Google.search(:query => query) rescue []
     begin
-      return "Google: #{response.results.first[:title]} - #{response.results.first[:url]}"
+      return Format(:bold, "[google]") + " #{response.results.first[:title]} - #{response.results.first[:url]}"
     rescue
-      return "No results found."
+      return Format(:bold, "[google]") + " No results found."
     end
   end
 
