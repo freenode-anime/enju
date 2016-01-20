@@ -25,7 +25,7 @@ class URLTitle
     http_headers = Hash[http_headers.flat_map{ |s| s.scan(/^(\S+): (.+)/) }]
     if http_headers["Content-Type"] =~ /^image\//
       hua = Filesize.from(http_headers["Content-Length"] + " B").pretty rescue nil
-      return "[#{http_headers["Content-Type"]}] #{hua}"
+      return Format(:bold, "[#{http_headers["Content-Type"]}]") + " #{hua}"
     else
       html = Nokogiri::HTML(call.body_str)
       title = html.at_xpath('//title').text.gsub(/\r/," ").gsub(/\n/," ").strip rescue nil
@@ -35,7 +35,7 @@ class URLTitle
         hua = Filesize.from(http_headers["Content-Length"] + " B").pretty rescue nil
         return "[#{http_headers["Content-Type"]}] #{hua}"
       else
-        return "[title] #{title}"
+        return Format(:bold, "[title]") + " #{title}"
       end
 
       CGI.unescape_html title.text.gsub(/\s+/, ' ')
