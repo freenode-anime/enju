@@ -23,6 +23,7 @@ GEM
     omdbapi (0.2.1)
       httparty (>= 0.13)
     require_all (1.3.3)
+    ruby-units (2.0.0)
     ruby-web-search (0.0.2)
       json
     time-lord (1.0.1)
@@ -40,6 +41,7 @@ DEPENDENCIES
   nokogiri
   omdbapi
   require_all
+  ruby-units
   ruby-web-search
 
 BUNDLED WITH
