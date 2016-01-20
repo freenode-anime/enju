@@ -10,6 +10,6 @@ class AnimeChan
   end
 
   def stats(m)
-    m.reply "Stats are generated on a 10 min interval and is available at http://flux.theforgotten.com/anime.html"
+    m.reply "Stats are generated on a 10 min interval and is available at http://flux.theforgotten.com/anime.html or https://we.destroy.tokyo/anime"
   end
 end
