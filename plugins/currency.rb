@@ -5,7 +5,7 @@ Money.use_i18n = false
 class Currency
   include Cinch::Plugin
 
-  match /^([\d\.,]{1,})\s([a-zA-Z]{3,4})\s(in|to)\s([a-zA-Z]{3,4})$/, :use_prefix => false
+  match /^([\d\.,]{1,})\s([a-zA-Z]{3,4})\s(in)\s([a-zA-Z]{3,4})$/, :use_prefix => false
 
   def initialize(*args)
     super
